@@ -5,11 +5,12 @@ import javax.swing.text.Document;
 /*
  * Created on 05.09.2014
  */
+
 /**
  * @author Wolfgang Weck
  */
 public interface Updater<E> {
-	Document getDocument();
+Document getDocument();
 
-	void update(E value);
+void update(E value);
 }
