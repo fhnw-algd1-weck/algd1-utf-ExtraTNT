@@ -37,20 +37,19 @@ public void update(Integer val) {
 }
 
 private String hexBytes(byte[] b) {
+    if (b == null) return "";
     StringBuilder s = new StringBuilder();
-    if (b != null) {
-        for (int x : b) {
-            if (x < 0) x = x + 256;
-            s.append(hexDigit(x / 16));
-            s.append(hexDigit(x % 16));
-        }
-        return s.toString();
+
+    for (int x : b) {
+        if (x < 0) x = x + 256;
+        s.append(hexDigit(x / 16));
+        s.append(hexDigit(x % 16));
     }
-    else return "";
+    return s.toString();
 }
 
 private char hexDigit(int x) {
     if (x < 10) return (char) ('0' + x);
-    else return (char) ('A' + x - 10);
+    return (char) ('A' + x - 10);
 }
 }

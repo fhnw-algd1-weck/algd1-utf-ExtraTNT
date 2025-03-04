@@ -18,18 +18,18 @@ private final List<Updater<E>> updaters = new LinkedList<>();
 
 @SuppressWarnings("unchecked")
 public void updateAllExceptSource(Document sourceDoc, E value) {
-    if (!isUpdating) try {
+    if (isUpdating) return;
+    try {
         isUpdating = true;
         if (this.value == null || !this.value.equals(value)) {
             this.value = value;
-            for (Updater<E> upd : updaters.toArray(
-                new Updater[updaters.size()])) {
-                if (upd.getDocument() != sourceDoc) {
-                    try {
-                        upd.update(value);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+            for (Updater<E> upd : updaters.toArray(new Updater[0])) {
+                if (upd.getDocument() == sourceDoc) continue;
+                
+                try {
+                    upd.update(value);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

@@ -50,6 +50,6 @@ private byte[] bytes(String s) {
 private int hexDigitAt(String s, int i) {
     char c = s.charAt(i);
     if ('0' <= c && c <= '9') return c - '0';
-    else return c - 'A' + 10;
+    return c - 'A' + 10;
 }
 }

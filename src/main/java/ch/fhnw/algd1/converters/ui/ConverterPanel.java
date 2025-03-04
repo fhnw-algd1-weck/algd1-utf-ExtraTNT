@@ -29,7 +29,6 @@ import java.awt.event.KeyEvent;
 /**
  * @author Wolfgang Weck
  */
-@SuppressWarnings("serial")
 public class ConverterPanel extends Panel {
 private static final int nofBits = 21;
 private static final Font fnt = new Font("", Font.PLAIN, 20);

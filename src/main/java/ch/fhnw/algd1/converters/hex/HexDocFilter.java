@@ -93,13 +93,11 @@ public void replace(FilterBypass fb, int offset, int length, String text,
         s = new StringBuilder();
         offset--;
         length++;
-    }
-    else if (s0.equals("-0") && offset == 2) {
+    } else if (s0.equals("-0") && offset == 2) {
         s = new StringBuilder("-");
         offset--;
         length++;
-    }
-    else s = new StringBuilder(s0);
+    } else s = new StringBuilder(s0);
     s.replace(offset, offset + length, text.toUpperCase());
     if (isOK(s.toString())) super.replace(
         fb, offset, length, text.toUpperCase(), attrs);
