@@ -5,7 +5,7 @@ package ch.fhnw.algd1.converters.utf8;
  */
 
 /**
- * @author
+ * @author ExtraTNT
  */
 public class UTF8Converter {
 public static byte[] codePointToUTF(int x) {
@@ -84,10 +84,5 @@ private static boolean isValidUTF8(byte[] bytes) {
 
 private static boolean isFollowup(byte b) {
     return (b & 0b1100_0000) == 0b1000_0000;
-}
-
-
-private static int nand(int a, int b) {
-    return ~(a & b);
 }
 }

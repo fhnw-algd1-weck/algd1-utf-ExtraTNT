@@ -17,16 +17,8 @@ public final class Application extends Frame {
  * @param args
  */
 public static void main(String[] args) {
-    openGUI();
-}
-
-private static void openGUI() {
-    javax.swing.SwingUtilities.invokeLater(new Runnable() {
-        @Override
-        public void run() {
-            newFrame(new ConverterPanel()).setVisible(true);
-        }
-    });
+    javax.swing.SwingUtilities.invokeLater(
+        () -> newFrame(new ConverterPanel()).setVisible(true));
 }
 
 private static Frame newFrame(Panel p) {
