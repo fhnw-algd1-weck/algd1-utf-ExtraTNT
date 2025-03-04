@@ -23,7 +23,7 @@ public void insertString(FilterBypass fb, int offset, String string,
     AttributeSet attr) throws BadLocationException {
     try {
         super.replace(fb, 0, fb.getDocument().getLength(), string, attr);
-    } catch (Exception e) {}
+    } catch (Exception ignored) {}
 }
 
 @Override
@@ -31,6 +31,6 @@ public void replace(FilterBypass fb, int offset, int length, String text,
     AttributeSet attrs) throws BadLocationException {
     try {
         super.replace(fb, 0, fb.getDocument().getLength(), text, attrs);
-    } catch (Exception e) {}
+    } catch (Exception ignored) {}
 }
 }

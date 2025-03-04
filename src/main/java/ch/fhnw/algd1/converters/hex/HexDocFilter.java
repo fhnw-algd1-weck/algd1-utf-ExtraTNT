@@ -31,10 +31,10 @@ private String curText(FilterBypass fb) throws BadLocationException {
 
 private boolean isOK(String s) {
     s = normalized(s);
-    if (s.equals("") || (s.equals("-") && min < 0)) return true;
+    if (s.isEmpty() || (s.equals("-") && min < 0)) return true;
     try {
         int i = Integer.parseInt(s, 16);
-        return s.equals("" + Integer.toString(i, 16).toLowerCase()) &&
+        return s.equals(Integer.toString(i, 16).toLowerCase()) &&
             i >= min && i <= max;
     } catch (NumberFormatException e) {
         return false;

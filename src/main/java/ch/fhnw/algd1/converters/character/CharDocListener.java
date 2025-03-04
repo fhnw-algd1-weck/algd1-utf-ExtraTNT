@@ -24,7 +24,7 @@ protected void anyUpdate(DocumentEvent e) {
     try {
         final Document doc = e.getDocument();
         final String s = doc.getText(0, doc.getLength());
-        final int x = s.length() == 0 ? 0 : CharConverter.fromString(s);
+        final int x = s.isEmpty() ? 0 : CharConverter.fromString(s);
         updateModel(e, x);
     } catch (BadLocationException e1) {
         e1.printStackTrace();

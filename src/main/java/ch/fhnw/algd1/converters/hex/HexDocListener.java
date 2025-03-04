@@ -24,7 +24,7 @@ protected void anyUpdate(DocumentEvent e) {
     try {
         final Document doc = e.getDocument();
         final String s = doc.getText(0, doc.getLength());
-        final int x = (s.length() == 0 || s.equals("-")) ? 0 :
+        final int x = (s.isEmpty() || s.equals("-")) ? 0 :
             HexConverter.fromString(s.toUpperCase());
         updateModel(e, x);
     } catch (BadLocationException e1) {
