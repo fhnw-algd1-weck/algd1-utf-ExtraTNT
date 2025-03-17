@@ -1,25 +1,25 @@
 plugins {
-	id 'java'
-	id 'application'
-	id 'idea'
+    id 'java'
+    id 'application'
+    id 'idea'
 }
 
 application {
-	mainClass = "ch.fhnw.algd1.converters.ui.Application"
+    mainClass = "ch.fhnw.algd1.converters.ui.Application"
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
 tasks.named('jar') {
-	archiveFileName = 'utf.jar'
+    archiveFileName = 'utf.jar'
 
-	manifest {
-		attributes 'Main-Class': application.mainClass
-		attributes 'Class-Path': '.'
-	}
+    manifest {
+        attributes 'Main-Class': application.mainClass
+        attributes 'Class-Path': '.'
+    }
 }
