@@ -29,7 +29,7 @@ public static byte[] codePointToUTF(int x) {
     }
     if (x <= 0x7FF) {
         return new byte[]{
-            (byte) (0xC0 | ((x >> 6) & 0x0F)),
+            (byte) (0xC0 | ((x >> 6) & 0x1F)),
             (byte) (0x80 | (x & 0x3F))};
     }
     if (x <= 0xFFFF) {
@@ -52,15 +52,15 @@ public static int UTFtoCodePoint(byte[] bytes) {
     return switch (bytes.length) {
         case 1 -> 
             bytes[0] & 0x7F;
-        case 2 -> 
-            bytes[0] << 6 |
+        case 2 ->
+            (bytes[0]  & 0x3F) << 6 | // missing mask, as the first bytes have a strict value
             bytes[1] & 0x3F;
         case 3 -> 
             ((bytes[0] & 0x0F) << 12) | 
             ((bytes[1] & 0x3F) << 6) |
             (bytes[2] & 0x3F);
         case 4 -> 
-            ((bytes[0] & 0x7) << 18) | 
+            ((bytes[0] & 0x07) << 18) | 
             ((bytes[1] & 0x3F) << 12) | 
             ((bytes[2] & 0x3F) << 6) | 
             (bytes[3] & 0x3F);
